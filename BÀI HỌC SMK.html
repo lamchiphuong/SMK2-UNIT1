@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Title hiển thị trên tab trình duyệt -->
+  <title>Bài học Smart Kids 3 - Unit 1: My school</title>
+  
+  <!-- Open Graph Meta Tags cho preview trên Zalo, Messenger, Facebook -->
+  <meta property="og:title" content="Bài học Smart Kids 3 - Unit 1: My school" />
+  <meta property="og:description" content="Quý phụ huynh vui lòng nhấn vào link này để mở nội dung bài học và ôn tập cho bé!" />
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEiMY_Cqm512KbrBcMryjCVR8IvH5vAQEO2iV2K0AkPFfhGNfz2kgiL_BiM1Ov8BomtfngDp1KcFNt6G2JPR2D2GDbKBC9xrL-fA18xI3KqkbWCNJbvYztsQlF5P9YXsvOokQajWolBkx5rNypXyn-A6Sj3WQSsdULvLIeoXELbe0ktnN-dzvviRZVtIxBzV" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/BAI-HOC-SMK.html" /> <!-- ← THAY BẰNG LINK THỰC TẾ SAU KHI UP -->
+  <meta property="og:site_name" content="Smart Kids English" />
+  
+  <!-- Twitter Cards (hỗ trợ X/Twitter) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bài học Smart Kids 3 - Unit 1: My school" />
+  <meta name="twitter:description" content="Quý phụ huynh vui lòng nhấn vào link này để mở nội dung bài học và ôn tập cho bé!" />
+  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEiMY_Cqm512KbrBcMryjCVR8IvH5vAQEO2iV2K0AkPFfhGNfz2kgiL_BiM1Ov8BomtfngDp1KcFNt6G2JPR2D2GDbKBC9xrL-fA18xI3KqkbWCNJbvYztsQlF5P9YXsvOokQajWolBkx5rNypXyn-A6Sj3WQSsdULvLIeoXELbe0ktnN-dzvviRZVtIxBzV" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .modal { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    iframe { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md py-6">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-indigo-700">📚 UNIT 1: MY SCHOOL</h1>
+      <p class="text-gray-600 mt-2">Chọn hoạt động bên dưới để bắt đầu ngay!</p>
+    </div>
+  </header>
+
+  <!-- Danh sách 3 bài học -->
+  <main class="max-w-5xl mx-auto px-4 py-12">
+    <div id="lessons" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Các thẻ bài học sẽ được JS tạo ra -->
+    </div>
+  </main>
+
+  <!-- Modal Pop-up (iframe) -->
+  <div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+    <div class="modal bg-white rounded-3xl max-w-4xl w-full max-h-[95vh] overflow-hidden shadow-2xl">
+      <!-- Header modal -->
+      <div class="flex items-center justify-between bg-indigo-600 text-white px-6 py-4">
+        <h2 id="modalTitle" class="text-2xl font-semibold">ÔN TẬP TỪ VỰNG</h2>
+        <button onclick="closeModal()" 
+                class="text-4xl leading-none hover:text-red-200 transition">×</button>
+      </div>
+      
+      <!-- Nội dung iframe -->
+      <div class="p-4">
+        <iframe id="modalIframe" 
+                class="w-full" 
+                style="height: 65vh;" 
+                allowfullscreen></iframe>
+      </div>
+      
+      <!-- Footer modal -->
+      <div class="px-6 py-4 border-t text-right">
+        <button onclick="closeModal()" 
+                class="px-8 py-3 bg-gray-200 hover:bg-gray-300 rounded-2xl font-medium transition">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==================== THAY ĐỔI Ở ĐÂY ====================
+    const lessons = [
+      {
+        title: "ÔN TẬP TỪ VỰNG",
+        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikjeZexXRnFM6HrGb3cVO1LLGbMUjzzJOfB11gD16uhhmwaCYG8P_M1ZUUt4Dq9FjtA4RB6SJxSHXuUKtNlB1PSda14OT-xxsOBde_myEEyZzzdaVZ0plePBYm0W1RAgoUOxwEp4Zmv7IkDmEgVerPuAsjL-R85kY6hO-YZEGLK4ggxBfEBeJ_GOVPicRc/s320/A%CC%89nh%20chu%CC%A3p%20Ma%CC%80n%20hi%CC%80nh%202026-03-23%20lu%CC%81c%2009.02.13.png",
+        embed: "https://wordwall.net/play/106623/701/945"
+      },
+      {
+        title: "CHỌN HÌNH ĐÚNG",
+        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX1wSkN4nAR2_BtlslPqQ-kp-POsP1K-OqXJyatmI9Ff-RvXZpljVwDLQhLsZA-upHAFn7XXAJq1MA6uZcYhd9Q2Hp70g1z92HwKBH6McfhW2gE2lCJU0ZnACyCffNCG38l7dEw3gGD8Gs3zV5nKOUfb8nyW3b4O6AKhdKFlhgUY6VP3sasiIHbYsk_jJS/s320/A%CC%89nh%20chu%CC%A3p%20Ma%CC%80n%20hi%CC%80nh%202026-03-23%20lu%CC%81c%2009.05.37.png",
+        embed: "https://wordwall.net/play/106623/541/478"
+      },
+      {
+        title: "QUIZ - KIỂM TRA",
+        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihO7Iq8dpx1z9-gVzqOqPtUIGWk_oYAuL9MFOupvCsKEVoLd28ezwcx09Aki1cX6HAd7KsH7_sRvwWU4SwjViTLYKTgdf65VQHukHGKRWB9gkTvaLsleRCxPtqetInM7O-BPZQgil_R8AzFsHNUE1K09i0X0uIAivS9qDZL4UYqPi5R9eaOI1Mb3xVxc88/s320/A%CC%89nh%20chu%CC%A3p%20Ma%CC%80n%20hi%CC%80nh%202026-03-23%20lu%CC%81c%2009.03.41.png",
+        embed: "https://wordwall.net/play/109843/145/890"
+      }
+    ];
+    // =======================================================
+
+    // Tạo 3 thẻ bài học
+    function renderLessons() {
+      const container = document.getElementById("lessons");
+      container.innerHTML = "";
+
+      lessons.forEach((lesson, index) => {
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer";
+        card.innerHTML = `
+          <img src="${lesson.image}" 
+               class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">${lesson.title}</h3>
+            <button onclick="openLesson(${index})" 
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-2xl text-lg transition">
+              Mở bài học
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Mở modal
+    function openLesson(index) {
+      const lesson = lessons[index];
+      document.getElementById("modalTitle").textContent = lesson.title;
+      const iframe = document.getElementById("modalIframe");
+      iframe.src = lesson.embed;
+      
+      document.getElementById("modal").classList.remove("hidden");
+      document.getElementById("modal").classList.add("flex");
+      
+      document.body.style.overflow = "hidden";
+    }
+
+    // Đóng modal
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      
+      const iframe = document.getElementById("modalIframe");
+      iframe.src = "";
+      
+      document.body.style.overflow = "visible";
+    }
+
+    document.getElementById("modal").addEventListener("click", function(e) {
+      if (e.target.id === "modal") closeModal();
+    });
+
+    window.onload = renderLessons;
+  </script>
+</body>
+</html>
